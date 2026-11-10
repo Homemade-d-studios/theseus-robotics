@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Theseus Robotics" />
+    <title>Theseus Robotics</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="landing-shell">
+      <main class="landing" aria-label="Theseus Robotics">
+        <video
+          class="landing__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          aria-hidden="true"
+        >
+          <source src="./gemini_generated_video_5d8568cc.mp4" type="video/mp4" />
+        </video>
+        <div class="brand-name">
+          <img
+            class="brand-name__image"
+            src="./theseus-brand-transparent.png"
+            alt="Theseus Robotics"
+          />
+        </div>
+        <div class="yc-badge" aria-label="Backed by Y Combinator">
+          <img class="yc-badge__logo" src="./image.png" alt="Y Combinator" />
+          <span>Backed by Y Combinator</span>
+        </div>
+      </main>
+      <div class="landing-content">
+        <div class="landing-copy">
+          <h1 class="landing-heading">
+            Your store has a night shift<br />
+            Meet Theo
+          </h1>
+          <div class="landing-actions">
+            <span class="landing-actions__watch">Watch Theo work</span>
+            <span class="landing-actions__arrow" aria-hidden="true">→</span>
+            <a
+              class="landing-actions__preview"
+              href="mailto:hello@theseus.bot?subject=Private%20preview"
+            >
+              Book a private preview
+            </a>
+          </div>
+        </div>
+        <aside class="landing-capabilities" aria-label="Humanoid capabilities">
+          <h2>Humanoids for</h2>
+          <ul>
+            <li>Shelf restocking</li>
+            <li>Stock rotation</li>
+            <li>Order picking</li>
+          </ul>
+          <div class="landing-capabilities__divider"></div>
+          <p>
+            Get real-time shelf intelligence<br />
+            and act on it
+          </p>
+        </aside>
+      </div>
+    </div>
+
+    <section
+      class="film-section"
+      id="launch-film"
+      aria-label="Theseus Robotics launch film"
+    >
+      <video
+        class="film-section__video"
+        id="launch-video"
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="./theseus-launch-poster.jpg"
+      >
+        <source
+          src="./YTDown.com_YouTube_Media_UnGv_iXk7Cc_Theseus-Launch-Video_002_720p.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support HTML video.
+      </video>
+
+      <button
+        class="sound-control"
+        id="sound-control"
+        type="button"
+        aria-controls="launch-video"
+        aria-pressed="false"
+        aria-label="Turn video sound on"
+      >
+        <svg
+          class="sound-control__icon"
+          aria-hidden="true"
+          viewBox="0 0 18 18"
+          fill="none"
+        >
+          <path d="M2 7h3l4-3.5v11L5 11H2V7Z" />
+          <path class="sound-wave" d="M11.5 6.2a4 4 0 0 1 0 5.6" />
+          <path class="sound-wave" d="M14 4a7 7 0 0 1 0 10" />
+          <path class="sound-muted-mark" d="m12.2 7 4 4m0-4-4 4" />
+        </svg>
+        <span id="sound-label">Sound on</span>
+      </button>
+
+      <a class="film-contact" href="mailto:hello@theseus.bot">
+        hello@theseus.bot
+      </a>
+      <p class="film-locations">Theseus Robotics · Zürich · San Francisco</p>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
