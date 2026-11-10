@@ -20,17 +20,17 @@
           preload="auto"
           aria-hidden="true"
         >
-          <source src="./gemini_generated_video_5d8568cc.mp4" type="video/mp4" />
+          <source src="./assets/videos/hero.mp4" type="video/mp4" />
         </video>
         <div class="brand-name">
           <img
             class="brand-name__image"
-            src="./theseus-brand-transparent.png"
+            src="./assets/images/theseus-brand.png"
             alt="Theseus Robotics"
           />
         </div>
         <div class="yc-badge" aria-label="Backed by Y Combinator">
-          <img class="yc-badge__logo" src="./image.png" alt="Y Combinator" />
+          <img class="yc-badge__logo" src="./assets/images/yc-logo.png" alt="Y Combinator" />
           <span>Backed by Y Combinator</span>
         </div>
       </main>
@@ -43,12 +43,13 @@
           <div class="landing-actions">
             <span class="landing-actions__watch">Watch Theo work</span>
             <span class="landing-actions__arrow" aria-hidden="true">→</span>
-            <a
+            <button
               class="landing-actions__preview"
-              href="mailto:hello@theseus.bot?subject=Private%20preview"
+              id="preview-open"
+              type="button"
             >
               Book a private preview
-            </a>
+            </button>
           </div>
         </div>
         <aside class="landing-capabilities" aria-label="Humanoid capabilities">
@@ -65,6 +66,84 @@
           </p>
         </aside>
       </div>
+
+      <section class="preview-experience" id="preview-experience" aria-hidden="true">
+        <div class="preview-intro">
+          <h2>Book a private preview</h2>
+          <p>
+            Private previews are in person. Tell us about your stores and we’ll
+            email you a time.
+          </p>
+        </div>
+
+        <form class="preview-form" id="preview-form">
+          <button class="preview-form__close" id="preview-close" type="button">
+            Close
+          </button>
+
+          <div class="preview-form__grid">
+            <label class="preview-field">
+              <span>Name</span>
+              <input name="name" autocomplete="name" required />
+            </label>
+            <label class="preview-field">
+              <span>Work email</span>
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label class="preview-field">
+              <span>Company</span>
+              <input name="company" autocomplete="organization" required />
+            </label>
+            <label class="preview-field">
+              <span>Role <em>(optional)</em></span>
+              <input name="role" autocomplete="organization-title" />
+            </label>
+          </div>
+
+          <fieldset class="preview-options">
+            <legend>Store format <em>(pick all that apply)</em></legend>
+            <div class="preview-options__list">
+              <label><input type="checkbox" name="format" value="Hypermarket" /><span>Hypermarket</span></label>
+              <label><input type="checkbox" name="format" value="Supermarket" /><span>Supermarket</span></label>
+              <label><input type="checkbox" name="format" value="Discounter" /><span>Discounter</span></label>
+              <label><input type="checkbox" name="format" value="Convenience" /><span>Convenience</span></label>
+              <label><input type="checkbox" name="format" value="Drugstore" /><span>Drugstore</span></label>
+              <label><input type="checkbox" name="format" value="Other" /><span>Other</span></label>
+            </div>
+          </fieldset>
+
+          <div class="preview-form__grid">
+            <label class="preview-field">
+              <span>Number of stores</span>
+              <select name="store-count" required>
+                <option value="" selected disabled>Choose</option>
+                <option>1–10</option>
+                <option>11–50</option>
+                <option>51–250</option>
+                <option>251–1,000</option>
+                <option>1,000+</option>
+              </select>
+            </label>
+            <label class="preview-field">
+              <span>Country</span>
+              <input name="country" autocomplete="country-name" placeholder="Where your stores are" required />
+            </label>
+          </div>
+
+          <label class="preview-field preview-field--wide">
+            <span>Anything else? <em>(optional)</em></span>
+            <textarea name="details" rows="3" placeholder="Which products or aisles you’d want to see"></textarea>
+          </label>
+
+          <div class="preview-form__footer">
+            <button class="preview-form__submit" type="submit"><span>Send request</span></button>
+            <p>
+              Used only to arrange your preview.
+              <a class="preview-privacy" href="./privacy.html">Privacy</a>
+            </p>
+          </div>
+        </form>
+      </section>
     </div>
 
     <section
@@ -79,10 +158,10 @@
         loop
         playsinline
         preload="metadata"
-        poster="./theseus-launch-poster.jpg"
+        poster="./assets/images/launch-poster.jpg"
       >
         <source
-          src="./YTDown.com_YouTube_Media_UnGv_iXk7Cc_Theseus-Launch-Video_002_720p.mp4"
+          src="./assets/videos/launch-film.mp4"
           type="video/mp4"
         />
         Your browser does not support HTML video.

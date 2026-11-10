@@ -63,10 +63,74 @@ visibilityObserver.observe(video);
 
 updateSoundControl(false);
 
+const landingShell = document.querySelector(".landing-shell");
+const previewOpen = document.querySelector("#preview-open");
+const previewClose = document.querySelector("#preview-close");
+const previewExperience = document.querySelector("#preview-experience");
+const previewForm = document.querySelector("#preview-form");
+
+function setPreviewMode(isOpen) {
+  landingShell.classList.toggle("is-previewing", isOpen);
+  previewExperience.setAttribute("aria-hidden", String(!isOpen));
+
+  if (isOpen) {
+    if (window.location.hash !== "#private-preview") {
+      window.history.replaceState(null, "", "#private-preview");
+    }
+    window.setTimeout(
+      () => previewForm.querySelector('[name="name"]').focus(),
+      420,
+    );
+    return;
+  }
+
+  if (window.location.hash === "#private-preview") {
+    window.history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+  previewOpen.focus();
+}
+
+previewOpen.addEventListener("click", () => setPreviewMode(true));
+previewClose.addEventListener("click", () => setPreviewMode(false));
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && landingShell.classList.contains("is-previewing")) {
+    setPreviewMode(false);
+  }
+});
+
+if (window.location.hash === "#private-preview") {
+  setPreviewMode(true);
+}
+
+previewForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(previewForm);
+  const formats = formData.getAll("format").join(", ") || "Not specified";
+  const message = [
+    `Name: ${formData.get("name")}`,
+    `Work email: ${formData.get("email")}`,
+    `Company: ${formData.get("company")}`,
+    `Role: ${formData.get("role") || "Not specified"}`,
+    `Store format: ${formats}`,
+    `Number of stores: ${formData.get("store-count")}`,
+    `Country: ${formData.get("country")}`,
+    "",
+    "Anything else:",
+    formData.get("details") || "Not specified",
+  ].join("\n");
+
+  window.location.href =
+    "mailto:hello@theseus.bot?subject=Private%20preview%20request&body=" +
+    encodeURIComponent(message);
+});
+
 const glitchGlyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>[]{}\/|_-+=*#?";
 const glitchTargets = document.querySelectorAll(
   ".landing-heading, .landing-actions__watch, .landing-capabilities h2, " +
-    ".landing-capabilities li, .landing-capabilities p, .film-locations",
+    ".landing-capabilities li, .landing-capabilities p, .film-locations, " +
+    ".preview-intro h2, .preview-intro p",
 );
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
